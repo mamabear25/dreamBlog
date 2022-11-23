@@ -1,0 +1,14 @@
+{
+  "name": "blog-backend",
+  "version": "1.0.0",
+  "description": "dreamers blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "techMomma",
+  "license": "MIT"
+}

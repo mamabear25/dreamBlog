@@ -1,0 +1,89 @@
+$lightgreen: #b9e7e7;
+
+.home{
+
+    .container{
+
+        .posts{
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 150px;
+
+            .post{
+                display: flex;
+                gap: 100px;
+
+                // if the number of post is an odd number, display comntent on the right and img on the left
+                &:nth-child(2n+1){
+                    flex-direction: row-reverse;
+                }
+
+                .img{
+                    flex: 2;
+                    // this enables the after effect else it'll take up the ehole container
+                    position: relative;
+
+                    &::after{
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        background-color: $lightgreen;
+                        position: absolute;
+                        top: 20px;
+                        left: -20px;
+                        z-index: -1;
+
+                    }
+
+                    img{
+                        width: 100%;
+                        max-height: 400px;
+                        object-fit: cover;
+                    }
+                }
+                    
+                .link{
+                    text-decoration: none;
+                    color: inherit;
+                        
+                }
+                
+                .content{
+                    flex: 3;
+                    display: flex;
+                    flex-direction:column;
+                    justify-content: space-around;
+
+                    h1{
+                        font-size: 48px;
+                    }
+
+                    p{
+                        font-size: 18px;
+                    }
+
+                    button{
+                        width: max-content;
+                        padding: 10px 20px;
+                        border: none;
+                        cursor: pointer;
+                        background-color: white;
+                        border: 1px solid teal;
+                        color: teal;
+
+                        &:hover{
+                            border: 1px solid white;
+                            background-color: $lightgreen;
+                            color: black;
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+        
+    }
+}

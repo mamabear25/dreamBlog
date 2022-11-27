@@ -4,11 +4,30 @@
   "description": "dreamers blog",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "start": "nodemon index.js"
   },
   "keywords": [
     "blog"
   ],
   "author": "techMomma",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-jwt": "^7.7.7",
+    "express-openid-connect": "^2.10.0",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.0.0",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.20",
+    "npm": "^9.1.2",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "winston": "^3.8.2"
+  }
 }

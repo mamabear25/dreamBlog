@@ -15,7 +15,7 @@ function noCheck(req, res) {
 };
 
 function profile(req, res) {
-    res.send(`hello ${req.oidc.user.sub}`);
+    res.send(`hello ${req.oidc.user.nickname}`);
 };
 
 function admin(req, res) {

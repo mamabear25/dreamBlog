@@ -7,7 +7,7 @@ const postRouter = express.Router()
 
 postRouter.use(auth0Middleware);
 
-postRouter.get('/', postController.getAllPosts)
+postRouter.get('/', requiresAuth, postController.getAllPosts)
 
 postRouter.get('/:id', postController.getPostByID)
 

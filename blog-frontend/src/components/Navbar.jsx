@@ -12,9 +12,11 @@ const Navbar = () => {
           <div className="links">
             <Link className="link" to="/?cat=cars"><h6>CARS</h6></Link>
             <Link className="link" to="/?cat=food"><h6>FOOD</h6></Link>
+            <Link className="link" to="/?cat=tech"><h6>TECH</h6></Link>
             <Link className="link" to="/?cat=travel"><h6>TRAVEL</h6></Link>
+            <Link className="link" to="/?cat=finance"><h6>FINANCE</h6></Link>
+            <Link className="link" to="/?cat=politics"><h6>POLITICS</h6></Link>
             <Link className="link" to="/?cat=lifestyle"><h6>LIFESTYLE</h6></Link>
-            <Link className="link" to="/?cat=technology"><h6>TECH</h6></Link>
             <Link className="link" to="/?cat=health"><h6>HEALTH/FITNESS</h6></Link>
             <span>Jane</span>
             <span>Logout</span>

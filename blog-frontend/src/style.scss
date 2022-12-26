@@ -5,7 +5,8 @@ $dimmer:#2588da;
     display: flex;
     justify-content: center;
     .container{
-        width: 1024px;
+        padding-left: 30px;
+        padding-right: 30px;
 
         .link{
             text-decoration: none;
@@ -111,9 +112,10 @@ $dimmer:#2588da;
 
         // navbar
         .navbar{
+            height: 130px;
             .container{
                 // 10px top n bottom, 0px left and right
-                padding: 10px 0;
+                // padding: 1px 0;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -125,10 +127,10 @@ $dimmer:#2588da;
                 .links{
                     display: flex;
                     align-items: center;
-                    gap: 10px;
+                    gap: 30px;
 
                     h6{
-                        font-size: 16px;
+                        font-size: 17px;
                         font-weight: 300;
                     }
 
@@ -171,80 +173,142 @@ $dimmer:#2588da;
             }
         }
 
-        // home
-        .home{
-            .posts{
-                margin-top: 50px;
-                display: flex;
-                flex-direction: column;
-                gap: 120px;
+        //BLOG CARD
 
-                .post{
-                    display: flex;
-                    gap: 100px;
+        .blogcontainer{
+            // padding-top: 20px;
+            text-align:justify;
+            display: flex;
+            max-width: 45%;
+            gap:10px;
+            // align-items: center;
+            border-bottom: 1px solid rgba(211, 211, 211, 0.701);
+            justify-content: space-between;
 
-                    // condition to flex images if its odd or even
-                    &:nth-child(2n+1){
-                        flex-direction: row-reverse;
-                    }
-
-                    .img{
-                        flex: 2;
-                        position: relative;
-                        // give relative positioning here (1)
-
-                        &:after{
-                            content: "";
-                            width: 100%;
-                            height: 100%;
-                            background-color: $dimmer;
-                            // (2)
-                            position: absolute;
-                            top: 10px;
-                            left: -10px;
-                            z-index: -1;
-                            filter: drop-shadow(10px 10px 10px $dimmer);
-                        }
-                        img{
-                            width: 100%;
-                            height: 100%;
-                            max-height: 400px;
-                            object-fit: cover;
-                        }
-                    }
-
-                    .content{
-                        flex: 3;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-
-                        h1{
-                            font-size: 30px;
-                        }
-
-                        p{
-                            font-size: 18px;
-                        }
-                        
-                        button{
-                            width: max-content;
-                            padding: 13px 20px;
-                            border: none;
-                            cursor: pointer;
-                            border: 1px solid $dimmer;
-                            border-radius: 10%;
-                            color: $dimmer;
-
-                            &:hover{
-                                background-color: $secondary-color;
-                                color: white;
-                                border: none
-                            }
-                        }
-                    }
+            .imagecontainer{
+                position: relative;
+                // give relative positioning here (1)
+                &::after{
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background-color: $secondary-color;
+                    // (2)
+                    position: absolute;
+                    bottom: 30px;
+                    left: -5px;
+                    z-index: -1;
+                    filter: drop-shadow(10px 10px 10px $secondary-color);
                 }
             }
+
+            .postcontainer{
+                flex-direction: column;
+                width: 100%;
+                height: 100px;
+                align-self:center;
+
+                .img{
+                    // img here
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .flex{
+                display: flex;
+                align-items: center;
+            }
+                    
+        }
+        // .zoom {
+        //     transition: transform .3s;
+        // }
+          
+        // .zoom:hover {
+        // -ms-transform: scale(1.1); /* IE 9 */
+        // -webkit-transform: scale(1.1); /* Safari 3-8 */
+        // transform: scale(1.1); 
+        // }  
+        
+        // BLOG LIST
+        .bloghome{
+            padding: 10px 10px;
+            width: 100%;
+          
+            .blogposts{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            }
+        }
+
+        // home
+        .maincontainer{
+            border-top: 1px solid rgba(211, 211, 211, 0.701);
+            border-bottom: 1px solid rgba(211, 211, 211, 0.701);
+            display: flex;
+
+            .homecontainer{
+                display: flex;
+                flex-direction: column;
+                
+                .poppost{
+                    // background-color: yellow;
+                    height:fit-content;
+                    display: flex;
+                    flex-direction: column;
+                    width: 150px;
+                    border-left: 1px solid rgba(60, 58, 58, 0.701);
+                    padding: 5px 10px;
+                    border-bottom: 1px solid rgba(60, 58, 58, 0.367);
+                }
+    
+                h1{
+                    text-align: center;
+                    font-size: 25px;
+                    color: darken($dimmer, 35%)
+                }
+                h2{
+                    font-size: 18px;
+                }
+    
+            }
+
+        }
+
+        .editor{
+            display: flex;
+            flex-direction: column;
+
+            h1{
+                text-align: center;
+            }
+            
+            .epoppost{
+                // background-color: yellow;
+                height:fit-content;
+                display: flex;
+                flex-direction: column;
+                width: 180px;
+                border-left: 1px solid rgba(60, 58, 58, 0.701);
+                padding: 5px 10px;
+                border-bottom: 1px solid rgba(60, 58, 58, 0.367);
+            }
+
+            h1{
+                font-size: 25px;
+                color: darken($dimmer, 35%)
+            }
+            h2{
+                font-size: 18px;
+            }
+
         }
 
         // single page
@@ -308,48 +372,47 @@ $dimmer:#2588da;
                     font-size: 20px;
                 }
             }
-            // menu
+        }
 
-            .menu{
-                flex: 2;
+        .menu{
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            h1{
+                font-size: 20px;
+                color: darken($dimmer, 35%)
+            }
+
+            .post{
                 display: flex;
                 flex-direction: column;
-                gap: 25px;
+                gap: 10px;
 
-                h1{
-                    font-size: 20px;
-                    color: darken($dimmer, 35%)
+                img{
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
                 }
 
-                .post{
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
+                h2{
+                    color: darken($dimmer, 35%);
+                }
 
-                    img{
-                        width: 100%;
-                        height: 200px;
-                        object-fit: cover;
-                    }
+                button{
+                    width: max-content;
+                    padding: 7px 10px;
+                    border: none;
+                    cursor: pointer;
+                    border: 1px solid $dimmer;
+                    border-radius: 5%;
+                    color: $dimmer;
 
-                    h2{
-                        color: darken($dimmer, 35%);
-                    }
-
-                    button{
-                        width: max-content;
-                        padding: 7px 10px;
-                        border: none;
-                        cursor: pointer;
-                        border: 1px solid $dimmer;
-                        border-radius: 5%;
-                        color: $dimmer;
-
-                        &:hover{
-                            background-color: $secondary-color;
-                            color: white;
-                            border: none
-                        }
+                    &:hover{
+                        background-color: $secondary-color;
+                        color: white;
+                        border: none
                     }
                 }
             }
@@ -442,6 +505,115 @@ $dimmer:#2588da;
                         justify-content:flex-start;
                         gap: 2px;
                         color: $secondary-color;
+                    }
+                }
+            }
+        }
+
+        // FEATURED
+
+        .featured{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgb(211, 211, 211);
+            
+            .featuredpost{
+
+                .text{
+                    // display: flex;
+                    // align-items: center;
+                    // justify-content: center;
+                    text-align:justify;
+                    max-width: 160px;
+                    gap: 10px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+
+                .header{
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 26px;
+                }
+
+                .feat{
+                    display: flex;
+                    width: 100%;
+                    margin-right: 10px;
+
+                    .title{
+                        text-decoration: none;
+                        text-align: center;
+                        color: $dimmer;
+                    }
+
+                    img{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        // world news
+
+        .world{
+            // display: flex;
+            padding: 5px;
+            // background-color: blue;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+
+            .pops{
+                // display: flex;
+                float: right;
+            }
+            .worldheader{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                font-weight: bold;
+                font-size: 26px;
+            }
+
+            
+            .worldpost{
+                display: flex;
+                width: 100%;
+                padding-bottom: 10px;
+                max-height: 50%;
+
+
+                .worldfeat{
+                    border: 1px solid rgb(211, 211, 211);
+
+
+                    display: flex;
+                    // align-items: center;
+                    width: 100%;
+                    height: fit-content;
+                    margin-right: 10px;
+
+                    .linker{
+                        text-decoration: none;
+                        color: black;
+                    }
+
+                    .worldtitle{
+                        text-align: center;
+                    }
+
+                    img{
+                        // padding-top: 20px;
+                        width: 100%;
+                        min-height: 200px;
+                        max-height: 200px;
+                        object-fit: cover;
+                        // height: 100%;
                     }
                 }
             }

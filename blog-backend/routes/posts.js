@@ -1,23 +1,22 @@
-const express = require('express');
-const postController = require("../controllers/Post");
-const auth0Middleware = require('../auth/auth0');
-const { requiresAuth } = require('express-openid-connect');
+import express from 'express';
+import { 
+    addPost, 
+    deletePost, 
+    getPost, 
+    getPosts, 
+    updatePost 
+} from '../controllers/post.js';
 
-const postRouter = express.Router()
+const router = express.Router()
 
-postRouter.use(auth0Middleware);
+router.get("/", getPosts)
+router.get("/:id", getPost)
+router.post("/", addPost)
+router.delete("/:id", deletePost)
+router.put("/:id", updatePost)
 
-postRouter.get('/', requiresAuth, postController.getAllPosts)
 
-postRouter.get('/:id', postController.getPostByID)
-
-postRouter.post('/', requiresAuth(), postController.addPost)
-
-postRouter.put('/:id', requiresAuth(), postController.updatePost)
-
-postRouter.delete('/:id', requiresAuth(), postController.deletePostByID)
-
-module.exports = postRouter
+export default router;
 
 
 

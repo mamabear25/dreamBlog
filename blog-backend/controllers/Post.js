@@ -1,134 +1,46 @@
-const Post = require('../models/Post')
-const {readingTime} = require("../routes/readTime")
-const { Router } = require ("express");
+import { db } from "../database/db.js";
+import jwt from "jsonwebtoken";
 
-//functional;
-function getAllPosts(req, res) {
-    Post.find()
-    .select({title: 1})
-    .populate("username", {username:1})
-        .then(posts => {
-            res.send(posts)
-        })
-        .catch(err => {
-            console.log(err)
-            res.send(err)
-        })
+export const getPosts = (req, res) => {
+    const q = req.query.cat 
+    ? "SELECT * FROM posts WHERE cat=?" 
+    : "SELECT * FROM posts";
+
+    db.query(q,[req.query.cat], (err, data) => {
+        if(err) return res.status(500).json(err)
+
+        return res.status(200).json(data)
+    })
 }
 
-//functional;
-function getPostByID(req, res) {
-    const id = req.params.id
-    Post.findById(id)
-        .then(post => {
-            res.status(200).send(post)
-        }).catch(err => {
-            console.log(err)
-            res.status(404).send(err)
-        })
+export const getPost = (req, res) => {
+    const q = "SELECT `username`, `title`, `desc`, `p.img`, `u.img AS userImg`, `cat`, `date`, FROM users u JOIN posts p ON u.id=p.uid WHERE p.id = ? "
+
+    db.query(q,[req.params.id], (err, data) => {
+        if(err) return res.status(500).json(err)
+
+        return res.status(200).json(data[0])
+    })
+};
+
+
+export const addPost = (req, res) => {
+    res.json("from controller")
 }
-
-//functional;
-function addPost(req, res) {
-    const post = new Post({
-        title: req.body.title,
-        description: req.body.description,
-        reading_time: readingTime(req.body.description),
-        username: req.oidc.user,
-        read_count: req.body.read_count
-    });
-    post.lastUpdateAt = new Date() // set the lastUpdateAt to the current date
-    Post.create(post)
-        .then(post => {
-            res.status(201).send(post)
-        }).catch(err => {
-            console.log(err)
-            res.status(500).send(err)
-        }
-    )
+export const updatePost = (req, res) => {
+    res.json("from controller")
 }
+export const deletePost = (req, res) => {
+    const token = req.cookies.access_token
 
-// function addPost(req, res) {
-//     const post = req.body
-//     post.lastUpdateAt = new Date() // set the lastUpdateAt to the current date
-//     Post.create(post)
-//         .then(post => {
-//             res.status(201).send(post)
-//         }).catch(err => {
-//             console.log(err)
-//             res.status(500).send(err)
-//         })
-// }
+    if(!token) return res.status(401).json("Unauthorized!")
 
+    jwt.verify(token, "jwtkey", (err, userInfo) => {
+        if(err) return res.status(403),json("Token is not valid!")
 
-function updatePost(req, res) {
-    const id = req.params.id
-    const post = req.body
-    book.lastUpdateAt = new Date() // set the lastUpdateAt to the current date
-    Post.findByIdAndUpdate(id, post, { new: true })
-        .then(newPost => {
-            res.status(200).send(newPost)
-        }).catch(err => {
-            console.log(err)
-            res.status(500).send(err)
-        }
-    )
-}
+        const postId = req.params.id
+        const q = "DELETE FROM posts WHERE `id` = ? AND `uid` = ?"
 
-function deletePostByID(req, res) {
-    const id = req.params.id
-    Post.findByIdAndRemove(id)
-        .then(post => {
-            res.status(200).send(post)
-        }).catch(err => {
-            console.log(err)
-            res.status(500).send(err)
-        }
-    )
-}
-
-module.exports = {
-    getAllPosts,
-    getPostByID,
-    addPost,
-    updatePost,
-    deletePostByID
-}
-
-// const express = require('express')
-// const multer  = require('multer')
-// //importing mongoose schema file
-// const Upload = require("../models/Upload");
-// const app = express()
-// //setting options for multer
-// const storage = multer.memoryStorage();
-// const upload = multer({ storage: storage });
-
-
-// app.post("/upload", upload.single("file"), async (req, res) => {
-//     // req.file can be used to access all file properties
-//     try {
-//       //check if the request has an image or not
-//       if (!req.file) {
-//         res.json({
-//           success: false,
-//           message: "You must provide at least 1 file"
-//         });
-//       } else {
-//         let imageUploadObject = {
-//           file: {
-//             data: req.file.buffer,
-//             contentType: req.file.mimetype
-//           },
-//           fileName: req.body.fileName
-//         };
-//         const uploadObject = new Upload(imageUploadObject);
-//         // saving the object into the database
-//         const uploadProcess = await uploadObject.save();
-//       }
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).send("Server Error");
-//     }
-//   });
-  
+        db.query(q, [postId, userInfo.id])
+    })
+};

@@ -38,16 +38,18 @@ const Worldnews = () => {
 
   return (
     <div className="world">
-        <p className="worldheader">World News</p>
+        <div className="head">
+            <p className="worldheader">AROUND THE WORLD</p>
+        </div>
         <div className="worldpost">
             {posts.map((post) => (
             <div className="worldfeat" key={post.id}>
                 <Link className="linker">
                     <div>
-                        <h4 className="worldtitle">{post.title}</h4>
+                        <h4 className="worldh">{post.title}</h4>
                     </div>
                     <div>
-                        <p className="worldtitle">{post.desc}</p> 
+                        <p className="worlddesc">{post.desc}</p> 
                     </div>
                     <img src={post.img} alt="" />
                 </Link> 
@@ -59,6 +61,3 @@ const Worldnews = () => {
 }
   
 export default Worldnews;
-<div>
-                <p className="worldheader">POLITICS TODAY</p>
-            </div>

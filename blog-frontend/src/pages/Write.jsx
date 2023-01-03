@@ -45,6 +45,14 @@ const Write = () => {
             <label htmlFor="travel">Travel</label>
           </div>
           <div className="cat">
+            <input type="radio" name="cat" value="finance" id="travel"/>
+            <label htmlFor="travel">Finance</label>
+          </div>
+          <div className="cat">
+            <input type="radio" name="cat" value="politics" id="travel"/>
+            <label htmlFor="travel">Politics</label>
+          </div>
+          <div className="cat">
             <input type="radio" name="cat" value="lifestyle" id="lifestyle"/>
             <label htmlFor="lifestyle">Lifestyle</label>
           </div>

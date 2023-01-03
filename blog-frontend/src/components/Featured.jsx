@@ -16,14 +16,13 @@ const Featured = () => {
   return (
     <div className="featured">
       <div className="featuredpost">
-        <p className="header">SPECIAL FEATURE - BLOGPOST OF THE DAY</p>
+        <p className="header">SPECIAL FEATURE - Tribesmen of Kudutangranfhwe</p>
         {posts.map((post) => (
         <div className="feat" key={post.id}>
             <p className="text">{post.desc}</p>
             <Link>
             <img src={post.img} alt="" />
-            <h3 className="title">{post.title}</h3>
-            </Link>  
+            </Link>
             <p className="text">{post.desc}</p>
         </div>
         ))}

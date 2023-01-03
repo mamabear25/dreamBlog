@@ -1,20 +1,31 @@
-const mongoose = require("mongoose");
-require("dotenv").config()
+import mysql from "mysql";
 
-const MONGODB_URL = process.env.MONGODB_URL
+export const db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "silverobinnaokonkwo",
+    database: "dreamBlog",
+    } 
+);
 
-function connectToMongoDB() {
-    mongoose.connect(MONGODB_URL);
+db.connect((err) => {
+    if (err) throw err;
+    console.log('Connected to MySQL Server!');
+});
+// const MONGODB_URI = process.env.MONGODB_URI
 
-    // pass the callback function once connected
-    mongoose.connection.on("connected", () => {
-        console.log("Dreamers is connected to mongoDB");
-    });
+// function connectToMongoDB() {
+//     mongoose.connect(MONGODB_URI);
 
-    mongoose.connection.on("error", (err) => {
-        console.log("Unable to connect to the DB, please check your connections", err);
-    })
-}
+//     // pass the callback function once connected
+//     mongoose.connection.on("connected", () => {
+//         console.log("Dreamers is connected to mongoDB");
+//     });
 
-module.exports = { connectToMongoDB };
+//     mongoose.connection.on("error", (err) => {
+//         console.log("Unable to connect to the DB, please check your connections", err);
+//     })
+// }
+
+// module.exports = { connectToMongoDB };
 

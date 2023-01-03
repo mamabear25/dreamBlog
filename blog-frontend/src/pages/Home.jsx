@@ -7,12 +7,12 @@ import Worldnews from "../components/Worldnews";
 
 export default function Home ({blogList}) {
 
-  return (
+return (
+  <div>
     <div className="maincontainer">
       <div className="homecontainer">
         <Featured />
         <BlogList blogList={blogList} />
-        <Worldnews />
       </div>
       <div className="editor">
         <Editor />
@@ -21,6 +21,9 @@ export default function Home ({blogList}) {
         <Popular />
       </div>
     </div>
-  );
+    <Worldnews />
+  </div>
+);
 }
+  
   

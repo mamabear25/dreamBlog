@@ -31,7 +31,7 @@ const Editor = () => {
 
     return (
         <div className="epopular">
-            <h1>Editor Picks</h1>
+            <h1>Good Read</h1>
             {posts.map((post) => (
                 <div className="epoppost" key={post.id}>
                     <img src={post.title} alt="" />

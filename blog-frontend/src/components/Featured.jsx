@@ -1,31 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Featured = () => {
+  const [featured, setFeatured] = useState({});
 
-  const posts = [
-    {
-      id: 1,
-      username: "Jane Doe",
-      title: "Tribesmen of Kudutangranfhwe",
-      desc: "lorem ipsum dolor sit amet for lorem ipsum dolor sit amet for whateber freason we hav to write this, it;s tiring lorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiring lorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiring.lorem ipsum dolor sit amet for  whateber freason we we hav to write this, it;s tiring lorem ipsum dolor sit amet for  whateber freason lorem ipsum dolor sit amet for  whateber freason we",
-      img: "https://images.pexels.com/photos/2016121/pexels-photo-2016121.jpeg?cs=srgb&dl=pexels-faris-munandar-2016121.jpg&fm=jpg"
-    },
-    ];
-
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const res = await axios.get(`/feature`);
+        setFeatured(res.data);
+      } catch (err) {
+        console.log(err)
+      }
+    };
+    fetchData();
+  },[]);
+  
   return (
     <div className="featured">
       <div className="featuredpost">
-        <p className="header">SPECIAL FEATURE - Tribesmen of Kudutangranfhwe</p>
-        {posts.map((post) => (
-        <div className="feat" key={post.id}>
-            <p className="text">{post.desc}</p>
-            <Link>
-            <img src={post.img} alt="" />
+        <p className="header">SPECIAL FEATURE - {featured.title}</p>
+        <div className="feat">
+            <Link to={`/feature/${featured.id}`}>
+              <div className="imageContainerr">
+                <img src={`../upload/${featured?.img}`} alt="" />
+              </div>
             </Link>
-            <p className="text">{post.desc}</p>
         </div>
-        ))}
       </div>
     </div>
   );

@@ -28,15 +28,16 @@ const Navbar = () => {
           </svg>
           <span>{currentUser?.username}</span>
           { currentUser ? (
-          <span onClick={logout}>Logout</span>
+          <>
+          <span onClick={logout}>Logout</span><span className="write">
+            <Link className="link" to="/write">Write</Link>
+          </span>
+          </>
           ) : (
           <Link className="link" to="/login">
             Login
             </Link>
           )}
-          <span className="write">
-            <Link className="link" to="/write">Write</Link>
-          </span>
         </div>
       </div>
     </div>

@@ -27,6 +27,12 @@ const Editor = () => {
           desc: "lorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiring.lorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiringlorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiringlorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiring",
         //   img: "https://dxc.scene7.com/is/image/dxc/AdobeStock_432104398-6?qlt=90&wid=1200&ts=1669901329429&$landscape_desktop$&dpr=off"
         },
+        {
+          id: 5,
+          title: "Obioko Unana",
+          desc: "lorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiring.lorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiringlorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiringlorem ipsum dolor sit amet for  whateber freason we hav to write this, it;s tiring",
+        //   img: "https://dxc.scene7.com/is/image/dxc/AdobeStock_432104398-6?qlt=90&wid=1200&ts=1669901329429&$landscape_desktop$&dpr=off"
+        },
     ];
 
     return (
@@ -34,8 +40,8 @@ const Editor = () => {
             <h1>Good Read</h1>
             {posts.map((post) => (
                 <div className="epoppost" key={post.id}>
-                    <img src={post.title} alt="" />
-                    <p>{post.desc}</p>
+                    <h3>{post.title} </h3>
+                    <p>{post.desc.slice(0, 100)}</p>
                 </div>
             ))}
         </div>

@@ -121,7 +121,7 @@ $dimmer:#2588da;
         // navbar
         .navbar{
             background-color: white;
-            height: 6%;
+            // height: 6%;
             position: sticky;
             top: 0;
             z-index: 1;
@@ -134,7 +134,7 @@ $dimmer:#2588da;
                 justify-content: space-between;
                 .logo{
                     img{
-                        width: 150px;
+                        width: 130px;
                     }
                 }
                 .links{
@@ -273,7 +273,7 @@ $dimmer:#2588da;
 
         // home
         .maincontainer{
-            padding-top:60px;
+            padding-top:30px;
             border-top: 1px solid rgba(211, 211, 211, 0.701);
             border-bottom: 1px solid rgba(211, 211, 211, 0.701);
             display: flex;
@@ -327,7 +327,7 @@ $dimmer:#2588da;
                 display: flex;
                 flex-direction: column;
                 width: 180px;
-                border-left: 1px solid rgba(60, 58, 58, 0.701);
+                border-right: 1px solid rgba(60, 58, 58, 0.701);
                 padding: 5px 10px;
                 border-bottom: 1px solid rgba(60, 58, 58, 0.367);
             }
@@ -355,7 +355,7 @@ $dimmer:#2588da;
 
                 img{
                     width: 100%;
-                    height: 300px;
+                    height: 400px;
                     object-fit: cover;
                 }
 
@@ -392,7 +392,8 @@ $dimmer:#2588da;
                     }
                 }
 
-                h1{
+                .subhead{
+                    text-align: center;
                     font-size: 41px;
                     color: darken($dimmer, 35%)
                 }
@@ -451,7 +452,7 @@ $dimmer:#2588da;
 
         // write
         .create{
-            margin-top: 20px;
+            padding-top: 11%;
             display: flex;
             gap: 20px;
 
@@ -467,7 +468,7 @@ $dimmer:#2588da;
                 }
 
                 .editorQuill{
-                    height: 340px;
+                    height: 50vh;
                     overflow: scroll;
                     border: 1px solid lightgray;
 
@@ -557,7 +558,7 @@ $dimmer:#2588da;
                     // align-items: center;
                     // justify-content: center;
                     text-align:justify;
-                    max-width: 160px;
+                    // max-width: 200px;
                     gap: 10px;
                     padding-left: 10px;
                     padding-right: 10px;
@@ -567,11 +568,12 @@ $dimmer:#2588da;
                     text-align: center;
                     font-weight: bold;
                     font-size: 26px;
-                    padding-bottom: 20px;
+                    padding-bottom: 10px;
                 }
 
                 .feat{
                     display: flex;
+                    flex-direction: column;
                     width: 100%;
                     margin-right: 10px;
 
@@ -581,11 +583,14 @@ $dimmer:#2588da;
                         color: $dimmer;
                     }
 
-                    img{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
+                    .imageContainerr{
+                        // width: 50%;
+
+                        img{
                         width: 100%;
+                        height: 500px;
+                        object-fit: cover;
+                        }
                     }
                 }
             }
@@ -647,6 +652,20 @@ $dimmer:#2588da;
                         object-fit: cover;
                         height: 100%;
                     }
+                }
+            }
+        }
+
+        .carsContainer{
+            width: 50px;
+            height: 30px;
+
+            .cars{
+                width: 20px;
+                height: 20px;
+
+                img{
+                    width: 40px;
                 }
             }
         }

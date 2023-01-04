@@ -10,13 +10,14 @@ export default function Home ({blogList}) {
 return (
   <div>
     <div className="maincontainer">
+    <div className="editor">
+        <Editor />
+      </div>
       <div className="homecontainer">
         <Featured />
         <BlogList blogList={blogList} />
       </div>
-      <div className="editor">
-        <Editor />
-      </div>
+      
       <div className="homecontainer">
         <Popular />
       </div>

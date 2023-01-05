@@ -23,11 +23,11 @@ const Featured = () => {
       <div className="featuredpost">
         <p className="header">SPECIAL FEATURE - {featured.title}</p>
         <div className="feat">
+          <div className="imageContainerr">
             <Link to={`/feature/${featured.id}`}>
-              <div className="imageContainerr">
-                <img src={`../upload/${featured?.img}`} alt="" />
-              </div>
+              <img src={`../upload/${featured?.img}`} alt="" />
             </Link>
+          </div>
         </div>
       </div>
     </div>

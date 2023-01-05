@@ -152,7 +152,7 @@ $dimmer:#2588da;
                     }
 
                     .write{
-                        background-color: $dimmer;
+                        background-color: black;
                         width: 50px;
                         height: 50px;
                         border-radius: 50%;
@@ -450,9 +450,9 @@ $dimmer:#2588da;
             }
         }
 
-        // write
+        // Create
         .create{
-            padding-top: 11%;
+            padding-top: 3%;
             display: flex;
             gap: 20px;
 
@@ -573,7 +573,7 @@ $dimmer:#2588da;
 
                 .feat{
                     display: flex;
-                    flex-direction: column;
+                    // flex-direction: column;
                     width: 100%;
                     margin-right: 10px;
 
@@ -584,10 +584,10 @@ $dimmer:#2588da;
                     }
 
                     .imageContainerr{
-                        // width: 50%;
+                        // width: 100%;
 
                         img{
-                        width: 100%;
+                        // width: 100%;
                         height: 500px;
                         object-fit: cover;
                         }
@@ -656,19 +656,96 @@ $dimmer:#2588da;
             }
         }
 
-        .carsContainer{
-            width: 50px;
-            height: 30px;
+        // Categories
 
-            .cars{
-                width: 20px;
-                height: 20px;
+        .catContainer{
+            // display: flex;
 
+            .cat{
+                // width: 100%;
+                // height: 100%;
+                gap: 20px;
+                display: flex;
+                width: 100%;
+
+
+                .catPop{
+                    // flex: 1
+                    width: 20%;
+                    font-size: 10px;
+
+                    padding: 10px;;
+                    border: 1px solid gray;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .try{
+                    // width: 100%;
+                    border-left: 1px solid gray;
+                    border-right: 1px solid $secondary-color;
+                    padding: 10px;
+
+                    .catMain{
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        // height: 10%;
+                        justify-content: space-between;
+
+                        .catMini{
+                        padding: 10px;
+                        border-top: 1px solid rgb(211, 211, 211);
+                        border-right: 1px solid rgb(211, 211, 211);
+                        padding-top: 10px;
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                        width: 23%;
+
+                            .catContent{
+                                padding-bottom: 10px;
+                                h4{
+                                    padding: 10px;
+                                    text-align: center;
+                                }
+
+                                p{
+                                    padding: 10px;
+                                    text-align: justify;
+                                }
+                            }
+
+                            .catPost{
+                                // background-color: $dimmer;
+                                // width: 100%;  
+
+                                .img{
+                                    height: 200px;
+                                    object-fit: cover;
+                                    filter: drop-shadow(5px 7px 5px $dimmer);
+                                }
+                            }
+                        }
+                    }
+                }
                 img{
-                    width: 40px;
+                    width: 100%;
                 }
             }
         }
+
+        //  Profile
+        .gradient-custom-2 {
+            /* fallback for old browsers */
+            background: #fbc2eb;
+            
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: -webkit-linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1));
+            
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1))
+            }
 
     }
 }

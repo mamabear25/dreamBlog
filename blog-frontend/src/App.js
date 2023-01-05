@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Single from "./pages/Single";
 import Write from "./pages/Write";
+import Cathome from "./pages/Cathome";
+import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./style.scss"
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
         path: "/write",
         element: <Write />
       },
+      {
+        path: "/cathome",
+        element: <Cathome />
+      },
+      {
+        path: "/profile",
+        element: <Profile />
+      }
     ]
   },
   {

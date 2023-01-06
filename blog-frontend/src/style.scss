@@ -737,15 +737,50 @@ $dimmer:#2588da;
 
         //  Profile
         .gradient-custom-2 {
+            height: 100%;
             /* fallback for old browsers */
             background: #fbc2eb;
-            
             /* Chrome 10-25, Safari 5.1-6 */
-            background: -webkit-linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1));
-            
+            background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgb(10, 10, 10));
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1))
+            background: linear-gradient(to right, rgba(0, 119, 255, 0.58), rgb(255, 255, 255),);
+
+                img{
+                    width: 100px;
+                }
+
+            .flex-column{
+                padding-left: 10px;
+                // object-fit: cover;
+                position: relative;
+                top: 40px;
             }
+
+            .aboutContainer{
+                height: 100%;
+            }
+
+            .mainCont{
+                display: flex;
+                width: 50%;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .text-center{
+                align-items: center;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background-color: rgb(244, 234, 234);
+                height: 100px;
+
+                .profpostContainer{
+                    display: flex;
+                    gap: 20px;
+                }
+            }
+        }
 
     }
 }

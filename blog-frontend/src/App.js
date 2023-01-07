@@ -12,6 +12,10 @@ import Cathome from "./pages/Cathome";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import PopularPage from "./pages/PopularPage";
+import FeaturePage from "./pages/FeaturePage";
+import AuthorProfile from "./pages/AuthorProfile";
+
 import "./style.scss"
 
 const Layout = () => {
@@ -50,6 +54,18 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />
+      },
+      {
+        path: "/popular/:id",
+        element: <PopularPage />
+      },
+      {
+        path: "/feature/:id",
+        element: <FeaturePage />
+      },
+      {
+        path: "/author",
+        element: <AuthorProfile />
       }
     ]
   },

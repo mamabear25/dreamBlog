@@ -9,12 +9,11 @@ import moment from "moment";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
 
-const Single = () => {
+const FeaturePage = () => {
   const [post, setPost] = useState({});
 
   const location = useLocation();
   const navigate = useNavigate();
-
 
   const postId = location.pathname.split("/")[2];
 
@@ -23,7 +22,7 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const res = await axios.get(`/posts/${postId}`);
+        const res = await axios.get(`/feature/${postId}`);
         setPost(res.data);
       } catch (err) {
         console.log(err)
@@ -34,7 +33,7 @@ const Single = () => {
 
   const handleDelete = async () => {
     try{
-      await axios.delete(`/posts/${postId}`);
+      await axios.delete(`/feature/${postId}`);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -61,11 +60,9 @@ const Single = () => {
       <h1 className="subhead">{post.title}</h1>
         <img src={`../upload/${post?.img}`} alt="" />
         <div className="user">
-        <Link to={"/author"}>
           {post.userImg && 
             <img src={post.userImg} alt="" />
           }
-        </Link>
           <div className="info">
             <span>{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
@@ -87,4 +84,4 @@ const Single = () => {
   );
 }
   
-export default Single;
+export default FeaturePage;

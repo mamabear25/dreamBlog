@@ -1,9 +1,10 @@
 import express from "express";
 import postRoutes from "./routes/posts.js"
 import userRoutes from "./routes/userpost.js"
+import postCount from "./routes/postCounts.js"
 import authRoutes from "./routes/auth.js"
 import specialFeature from "./routes/feature.js"
-
+import popRoute from "./routes/popular.js";
 import cookieParser from "cookie-parser";
 import multer from "multer";
 // const helmet = require('helmet');
@@ -34,15 +35,12 @@ app.post("/api/upload", upload.single("file"), function (req, res) {
 app.use("/api/auth", authRoutes)
 app.use("/api/userposts", userRoutes)
 app.use("/api/posts", postRoutes)
+app.use("/api/postcount", postCount)
+app.use("/api/popular", popRoute)
 app.use("/api/feature", specialFeature)
 
 // enabling CORS for all requests
 // app.use(cors());
-
-// const upload = multer({store: store});
-// app.post("/api/v2/upload", upload.single("file"),(req, res) => {
-//     res.status(200).json("file has been uploaded")
-// })
 
 // const limiter = rateLimit({
 // 	windowMs: 15 * 60 * 1000, // 15 minutes
@@ -55,27 +53,14 @@ app.use("/api/feature", specialFeature)
 // // adding Helmet to enhance your API's security
 // app.use(helmet());
 
-
-// const upload = multer({
-//     storage: storage
-// });
-// app.post("/api/upload", upload.single("file"), (req, res) => {
-//     res.status(200).json("File has been uploaded");
-// })
-
-// app.use("/api/auth", authRoute);
-// app.use("/api/users", userRoute);
-// app.use("/api/posts", postRoute);
-// app.use("/api/categories", categoryRoute);
-
-//Error handler middleware
-// app.use((err, req, res, next) => {
-//     // logger.error(err.message)
-//     console.log(err)
-//     const errorStatus = err.status || 500
-//     res.status(errorStatus).send(err.message)
-//     next()
-// })
+// Error handler middleware
+app.use((err, req, res, next) => {
+    // logger.error(err.message)
+    console.log(err)
+    const errorStatus = err.status || 500
+    res.status(errorStatus).send(err.message)
+    next()
+})
 
 app.listen(8800, () => {
     console.log("connected")

@@ -23,7 +23,7 @@ const BlogCard = ({post}) => {
                             {post.userImg && 
                               <img src={post.userImg} alt="" />
                             }
-                            <p>{post.username} || 26th Dec, 2022</p>
+                            <p>|| {post.date.slice(0,10)}</p>
                         </div>
                     </Link>
                 </div>

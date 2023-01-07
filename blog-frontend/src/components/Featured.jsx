@@ -1,10 +1,10 @@
 import React from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Featured = () => {
-  const [featured, setFeatured] = useState({});
+  const [feature, setFeatured] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,12 +20,12 @@ const Featured = () => {
   
   return (
     <div className="featured">
-      <div className="featuredpost">
-        <p className="header">SPECIAL FEATURE - {featured.title}</p>
+      <div key={feature.id} className="featuredpost">
+        <p className="header">SPECIAL FEATURE - {feature.title}</p>
         <div className="feat">
           <div className="imageContainerr">
-            <Link to={`/feature/${featured.id}`}>
-              <img src={`../upload/${featured?.img}`} alt="" />
+            <Link className="link" to={`feature/${feature.id}`}>
+              <img src={`../upload/${feature?.img}`} alt="" />
             </Link>
           </div>
         </div>
@@ -33,5 +33,8 @@ const Featured = () => {
     </div>
   );
 }
+
   
 export default Featured;
+
+

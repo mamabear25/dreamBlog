@@ -7,6 +7,6 @@ import {
 const router = express.Router()
 
 router.get("/", getFeaturedPost)
-router.get("/:", getFeaturedPostById)
+router.get("/:id", getFeaturedPostById)
 
 export default router;

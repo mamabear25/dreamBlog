@@ -23,11 +23,11 @@ const Navbar = () => {
           <Link className="link" to="/cathome?cat=politics"><h6>POLITICS</h6></Link>
           <Link className="link" to="/cathome?cat=lifestyle"><h6>LIFESTYLE</h6></Link>
           <Link className="link" to="/cathome?cat=health"><h6>HEALTH/FITNESS</h6></Link>
-          <Link to={"/profile"}>
-          <span>{currentUser?.username}</span>
-          </Link>
           { currentUser ? (
           <>
+          <Link className="link lint" to={"/profile"}>
+          <span>{currentUser?.username}</span>
+          </Link>
           <span onClick={logout}>Logout</span><span className="write">
             <Link className="link" to="/write">Write</Link>
           </span>

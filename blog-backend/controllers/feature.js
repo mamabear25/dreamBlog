@@ -1,7 +1,7 @@
 import { db } from "../database/db.js";
 
 export const getFeaturedPost = (req, res) => {
-    const q = "SELECT `title`,`desc`, `img` FROM posts ORDER BY RAND(5) LIMIT 3;"
+    const q = "SELECT * FROM posts ORDER BY RAND(HOUR(NOW())) LIMIT 1;"
 
     db.query(q,[req.params.id], (err, data) => {
         if(err) return res.status(500).json(err)

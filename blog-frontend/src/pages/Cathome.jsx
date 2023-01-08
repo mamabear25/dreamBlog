@@ -4,9 +4,13 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import Popular from "../components/Popular";
 import { Link } from "react-router-dom";
+import Pagination from "../components/Pagination";
+
 
 const Cars = () => {
   const [posts, setPosts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(14);
 
   const cat = useLocation().search
 
@@ -26,13 +30,22 @@ const Cars = () => {
     };
     fetchData();
   },[cat]);
+
+  // Pagination
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+
+  // Change page
+  const paginate = pageNumber => setCurrentPage(pageNumber);
   
   return (
     <div className="catContainer">
       <div className="cat">
         <div className="try">
           <div className="catMain">
-            {posts.map((cat) => (
+            {currentPosts.map((cat) => (
               <div className="catMini">
                 <div className="catContent">
                   <h4>{cat.title.slice(0, 20)}...</h4>
@@ -51,6 +64,11 @@ const Cars = () => {
           <Popular />
         </div>
       </div>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={posts.length}
+        paginate={paginate}
+      />
     </div>
   );
 }

@@ -18,10 +18,10 @@ export const getPostsByUser = (req, res) => {
 }
 
 
-export const getUserByID = (req, res) => {
+export const getUser = (req, res) => {
     const userId = req.params.userId;
 
-    const q = "SELECT * FROM users WHERE `id` = ?"
+    const q = "SELECT * FROM users WHERE id= ?"
 
     db.query(q,[user.id], (err, data) => {
         if(err) return res.status(500).json(err)

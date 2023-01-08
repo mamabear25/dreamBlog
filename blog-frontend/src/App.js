@@ -14,7 +14,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PopularPage from "./pages/PopularPage";
 import FeaturePage from "./pages/FeaturePage";
-import AuthorProfile from "./pages/AuthorProfile";
 
 import "./style.scss"
 
@@ -62,10 +61,6 @@ const router = createBrowserRouter([
       {
         path: "/feature/:id",
         element: <FeaturePage />
-      },
-      {
-        path: "/author",
-        element: <AuthorProfile />
       }
     ]
   },

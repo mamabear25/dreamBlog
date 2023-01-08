@@ -61,7 +61,7 @@ const Single = () => {
       <h1 className="subhead">{post.title}</h1>
         <img src={`../upload/${post?.img}`} alt="" />
         <div className="user">
-        <Link to={"/author"}>
+        <Link to={"/profile"}>
           {post.userImg && 
             <img src={post.userImg} alt="" />
           }

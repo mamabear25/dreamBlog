@@ -1,5 +1,4 @@
 import React from 'react';
-import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
 import { useState, useEffect } from "react";
@@ -22,95 +21,101 @@ const Profile = () => {
 
     const { currentUser } = useContext(AuthContext);
     return (
-        <div className="gradient-custom-2 mainCont">
-        <MDBContainer className="py-5 h-100">
-            <MDBRow className="justify-content-center align-items-center h-100">
-                <MDBCol lg="9" xl="7">
-                    <MDBCard>
-                        <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: '#000', height: '200px' }}>
-                            <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
-                                <MDBCardImage src={currentUser?.img}
-                                    alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '140px', height: '150px', objectFit: 'cover', zIndex: '1' }} />
-                                <MDBBtn outline color="dark" style={{height: '30px', width: "100%", overflow: 'hidden', padding: '15px'}}>
-                                    Edit profile
-                                </MDBBtn>
-                            </div>
-                            <div>
-                             <MDBTypography style={{fontSize: '20px', color: "white"}} tag="h5" className='username'>{currentUser?.username}</MDBTypography>
-                            </div>
-                        </div>
-                        <div className="p-4 text-black" style={{ backgroundColor: '#f8f9fa' }}>
-                            <div className="d-flex justify-content-end text-center py-1">
-                                <div className="profpostContainer">
-                                    <MDBCardText className="small text-muted mb-0">Posts</MDBCardText>
-                                    {/* <MDBCardText className="small text-muted mb-1">Likes</MDBCardText> */}
-                                </div>
-                            </div>
-                        </div>
-                        <MDBCardBody className="text-black p-4">
-                            <div className='aboutContainer'>
-                                <p className="lead fw-normal mb-1">About</p>
-                                <div className="ms-3" style={{ marginTop: '20px' }}>
-                                    <MDBCardText className="font-italic mb-1">First Name: {currentUser?.firstName}</MDBCardText>
-                                    <MDBCardText className="font-italic mb-1">Last Name: {currentUser?.lastName}</MDBCardText>
-                                    <MDBCardText className="font-italic mb-0">Email: {currentUser?.email}</MDBCardText>
-                                </div>
-                                <div className="d-flex justify-content-between align-items-center mb-4">
-                                    <MDBCardText className="lead fw-normal mb-0" style={{ marginBottom: '30px' }}>Recent Posts</MDBCardText>
-                                    {/* <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText> */}
-                                </div>
-                            </div>
-                            <MDBRow>
-                                <MDBCol className="mb-2">
-                                    <div className='postCont'>
-                                        {userPosts.map((userPost) => (
-                                        <div className="profPost" key={userPost.id}>
-                                            <MDBCardImage src={`../upload/${userPost?.img}`} alt="" className="w-100 rounded-3"/>
-                                            <p>{userPost.title.slice(0, 13)}..</p>
-                                        </div>
-                                        ))}
+        <main class="profile-page w-screen">
+            <section class="relative block h-500-px">
+                <div class="absolute top-0 w-full h-full bg-center bg-cover" 
+                style={{backgroundImage: `url('https://images.pexels.com/photos/2337491/pexels-photo-2337491.jpeg?cs=srgb&dl=pexels-lina-kivaka-2337491.jpg&fm=jpg')`}}>
+                
+                <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
+                </div>
+                <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style={{transform: "translateZ(0)"}}>
+                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                    <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
+                </div>
+            </section>
+            <section class="relative py-16 bg-blueGray-200">
+                <div class="container mx-auto px-4">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+                        <div class="px-6">
+                            <div class="flex flex-wrap justify-center">
+                                <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+                                    <div class="relative">
+                                        <img alt="user image" src={currentUser?.img} class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px" />
                                     </div>
-                                </MDBCol>
-                            </MDBRow>
-                        </MDBCardBody>
-                    </MDBCard>
-                </MDBCol>
-            </MDBRow>
-        </MDBContainer>
-        </div>
+                                </div>
+                                <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
+                                    <div class="py-6 px-3 mt-32 sm:mt-0">
+                                        <button class="bg-pink-900 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+                                        Edit Profile
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="w-full lg:w-4/12 px-4 lg:order-1">
+                                    <div class="flex justify-center py-4 lg:pt-4 pt-8">
+                                        <div class="mr-4 p-3 text-center">
+                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">22</span><span class="text-sm text-blueGray-400">Friends</span>
+                                        </div>
+                                        <div class="mr-4 p-3 text-center">
+                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">10</span><span class="text-sm text-blueGray-400">Photos</span>
+                                        </div>
+                                        <div class="lg:mr-4 p-3 text-center">
+                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">89</span><span class="text-sm text-blueGray-400">Comments</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-12">
+                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
+                                {currentUser?.username}
+                                </h3>
+                                <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                                <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+                                Los Angeles, California
+                                </div>
+                                <div class="mb-2 text-blueGray-600 mt-10">
+                                <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Solution Manager - Creative Tim Officer
+                                </div>
+                                <div class="mb-2 text-blueGray-600">
+                                <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>University of Computer Science
+                                </div>
+                            </div>
+                            <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
+                                <div class="flex flex-wrap justify-center">
+                                    <div class="w-full lg:w-9/12 px-4">
+                                        <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                        An artist of considerable range, Jenna the name taken by
+                                        Melbourne-raised, Brooklyn-based Nick Murphy writes,
+                                        performs and records all of his own music, giving it a
+                                        warm, intimate feel with a solid groove structure. An
+                                        artist of considerable range.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <h3 className="text-2xl font-medium text-center">Recent Posts</h3>
+                <div className="w-screen  mb-4 flex flex-col lg:flex-row text-center">
+                    <div className="bg-white rounded-lg overflow-hidden shadow-lg w-full lg:w-auto">
+                        <div className="p-8 flex flex-col justify-center items-center lg:flex-row lg:justify-start lg:flex-wrap">
+                        {userPosts.map((userPost) => (
+                            <div className="mb-4 w-1/3 lg:w-auto" key={"/post/id"}>
+                            <img src={`../upload/${userPost?.img}`} className="w-full h-32 rounded-lg" alt="recent post"/>
+                            <div className="text-xs font-medium text-gray-800">{userPost.title.slice(0, 13)}..</div>
+                            </div>
+                        ))}
+                        </div>
+                        <a href="#pablo" class="font-normal text-pink-500">Show more</a>
+
+                    </div>
+                </div>
+        </main>
     );
 }
 
 export default Profile;
 
-// export const getPosts = (req, res) => {
-//     // Set the default values for the page number and rows per page
-//     let page = req.query.page || 1;
-//     let rowsPerPage = req.query.rowsPerPage || 5;
-
-//     // Calculate the OFFSET value based on the current page and rows per page
-//     let offset = (page - 1) * rowsPerPage;
-  
-//     const q = req.query.cat 
-//     ? "SELECT * FROM posts WHERE cat=?" 
-//     : "SELECT * FROM posts ORDER BY date DESC LIMIT ? OFFSET ? ";
-
-//     db.query(q,[req.query.cat], (err, data) => {
-//         if(err) return res.status(500).json(err)
-
-//         return res.status(200).json(data)
-//     })
-// }
-
-
-// export const getPosts = (req, res) => {
-//     const q = req.query.cat 
-//     ? "SELECT * FROM posts WHERE cat=?" 
-//     : "SELECT * FROM posts ORDER BY date DESC LIMIT 20 ";
-
-//     db.query(q,[req.query.cat], (err, data) => {
-//         if(err) return res.status(500).json(err)
-
-//         return res.status(200).json(data)
-//     })
-// }

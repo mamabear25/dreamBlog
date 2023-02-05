@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Menu = ({ cat }) => {
 
@@ -26,16 +27,21 @@ const Menu = ({ cat }) => {
 
   return (
       <div className="menu">
-          <h1>Recommended posts</h1>
+          <h1 className="text-lg font-medium">Recommended posts</h1>
           {currentPosts.map((post) => (
-              <div className="post" key={post.id}>
-                  <img src={`../upload/${post?.img}`} alt="" />
-                  <h2>{post.title}</h2>
-                  <button>Read More</button>
+              <div className="my-4" key={post.id}>
+                  <img className="w-full object-cover rounded-lg" src={`../upload/${post?.img}`} alt="" />
+                  <h2 className="text-xl font-medium">{post.title}</h2>
+                  <br/>
+                  <Link className="p-2 text-gray-200 bg-pink-900 hover:text-white font-medium py-2 rounded-lg my-2" to={`/post/${post.id}`}>Read More</Link>
               </div>
           ))}
       </div>
   )
 }
   
+
+
+
+
 export default Menu;

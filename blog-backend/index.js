@@ -1,9 +1,10 @@
 import express from "express";
-import postRoutes from "./routes/posts.js"
-import userRoutes from "./routes/userpost.js"
-import postCount from "./routes/postCounts.js"
-import authRoutes from "./routes/auth.js"
-import specialFeature from "./routes/feature.js"
+import postRoutes from "./routes/posts.js";
+import userRoutes from "./routes/userpost.js";
+import postCount from "./routes/postCounts.js";
+import authRoutes from "./routes/auth.js";
+import slideRoute from "./routes/slide.js";
+import specialFeature from "./routes/feature.js";
 import popRoute from "./routes/popular.js";
 import cookieParser from "cookie-parser";
 import multer from "multer";
@@ -38,6 +39,8 @@ app.use("/api/posts", postRoutes)
 app.use("/api/postcount", postCount)
 app.use("/api/popular", popRoute)
 app.use("/api/feature", specialFeature)
+app.use("/api/slides", slideRoute)
+
 
 // enabling CORS for all requests
 // app.use(cors());

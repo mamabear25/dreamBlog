@@ -15,8 +15,6 @@ import Footer from "./components/Footer";
 import PopularPage from "./pages/PopularPage";
 import FeaturePage from "./pages/FeaturePage";
 
-import "./style.scss"
-
 const Layout = () => {
   return (
     <>
@@ -76,7 +74,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="app">
+    <div className="app bg-gray-100">
       <div className="popular"></div>
       <div className="container">
         <RouterProvider router={router} />

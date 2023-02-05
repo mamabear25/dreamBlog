@@ -6,11 +6,13 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "animate.css": "^4.1.1",
     "axios": "^1.2.2",
     "mdb-react-ui-kit": "^5.1.0",
     "mdbreact": "^5.2.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-awesome-slider": "^4.1.0",
     "react-dom": "^18.2.0",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.6.0",
@@ -42,5 +44,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://127.0.0.1:8800/api/"
+  "proxy": "http://127.0.0.1:8800/api/",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
 }

@@ -56,34 +56,34 @@ const Single = () => {
   }
 
   return (
-    <div className="single">
+    <div className="single p-40 bg-gray-200 py-8 w-screen gap-20 flex mt-10">
       <div className="content">
-      <h1 className="subhead">{post.title}</h1>
-        <img src={`../upload/${post?.img}`} alt="" />
-        <div className="user">
-        <Link to={"/profile"}>
-          {post.userImg && 
-            <img src={post.userImg} alt="" />
-          }
-        </Link>
-          <div className="info">
-            <span>{post.username}</span>
-            <p>Posted {moment(post.date).fromNow()}</p>
+        <img className="w-full object-cover rounded-lg" src={`../upload/${post?.img}`} alt="" />
+        <div className="user flex items-center my-4">
+          <Link to={"/profile"}>
+            {post.userImg && 
+              <img className="w-16 h-16 rounded-full mr-4 object-cover" src={post.userImg} alt="" />
+            }
+          </Link>
+          <div className="text-gray-700">
+            <span className="font-medium">{post.username}</span>
+            <p className="text-sm">Posted {moment(post.date).fromNow()}</p>
           </div>
           {currentUser.username === post.username && (
-             <div className="edit">
+          <div className="edit flex">
             <Link  to={`/write?edit=1`} state={post}>
-              <img src={Edit} alt=""/>
+              <img className="w-12 h-12" src={Edit} alt=""/>
             </Link>
-            <img onClick={handleDelete} src={Delete} alt="" />
+            <img className="w-12 h-12"  onClick={handleDelete} src={Delete} alt="" />
           </div>
           )}
         </div>
-        <h2>{post.title}</h2>
-        <p>{getText(post.desc)}</p>
+        <h1 className="text-xl font-bold">{post.title}</h1>
+        <p className="text-gray-700 leading-relaxed">{getText(post.desc)}</p>
       </div>
       <Menu cat={post.cat}/>
     </div>
+
   );
 }
   

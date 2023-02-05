@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.text-shadow-white {
+    text-shadow: 1px 1px #fff;
+}
+.text-shadow-black {
+    text-shadow: 1px 1px #000;
+}
+.border-l-3 {
+	border-left-width: 3px;
+}
+
+.header{
+    height: 50px;
+}
+
+.editor{
+    height: 400px;
+}

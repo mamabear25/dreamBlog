@@ -62,7 +62,7 @@ const Register = () => {
           </div>
           <div class="w-full py-6 z-20">
               <h1 class="my-6 text-5xl text-gray-200">Dreamers Blog</h1>
-              <div class="py-6 space-x-2">
+              {/* <div class="py-6 space-x-2">
                   <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">f</span>
                   <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">G+</span>
                   <Link to={"https://www.linkedin.com/company/unighana/"}>
@@ -71,7 +71,7 @@ const Register = () => {
               </div>
               <p class="text-gray-100">
                   Register using your social media
-              </p>
+              </p> */}
               <form action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                   <div class="pb-2 pt-4">
                       <input required type="name" name="name" id="name" placeholder="First Name" class="block w-full p-4 text-lg rounded-sm bg-black" onChange={handleChange}/>

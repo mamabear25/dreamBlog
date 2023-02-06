@@ -41,14 +41,14 @@ const Single = () => {
     }
   }
 
-  // const handleEdit = async () => {
-  //   try{
-  //     const res = await axios.put(`/posts/${postId}`);
-  //     setPost(res.data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  const handleEdit = async () => {
+    try{
+      const res = await axios.put(`/posts/${postId}`);
+      setPost(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   const getText = (html) => {
     const doc = new DOMParser().parseFromString(html, "text/html")

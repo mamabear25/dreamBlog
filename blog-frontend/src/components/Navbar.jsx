@@ -41,16 +41,17 @@ const Navbar = () => {
           <div class="text-sm">
               { currentUser ? (
               <>
-              <Link className="block mt-4 lg:inline-block lg:mt-0 text-white p-2 rounded-full bg-pink-900 hover:text-white mr-4" to="/profile">
-              {currentUser?.username}
+              <Link className="block mt-4 lg:inline-block lg:mt-0 text-white py-4 px-2 rounded-full bg-pink-900 hover:bg-white hover:text-pink-900 mr-4" to="/profile">
+                {currentUser?.username}
               </Link>
-              <span onClick={logout} className="block mt-4 lg:inline-block lg:mt-0 p-2 rounded-full text-white bg-gray-800 hover:text-white mr-4">
-              Logout
+              <span onClick={logout} 
+                className="block mt-4 lg:inline-block lg:mt-0 p-2 rounded-full text-white hover:bg-gray-900 hover:text-white mr-4 cursor-pointer">
+                Logout
               </span>
-              <Link className="block mt-4 lg:inline-block lg:mt-0 rounded-full text-white p-2 bg-gray-800 hover:text-black" to="/write">Write</Link>
+              <Link className="block mt-4 lg:inline-block lg:mt-0 rounded-full text-white hover:text-black decoration-black" to="/write">Write</Link>
               </>
               ) : (
-                <Link className="block mt-4 lg:inline-block lg:mt-0 text-white p-1 rounded-full bg-gray-800 hover:text-white" to="/login">
+                <Link className="block mt-4 lg:inline-block lg:mt-0 text-white py-2 px-2 rounded-full bg-gray-900 hover:text-white" to="/login">
                 Login
                 </Link>
               )}

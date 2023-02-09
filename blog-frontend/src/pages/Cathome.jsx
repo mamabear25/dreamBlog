@@ -2,10 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import Popular from "../components/Popular";
+import Editor from "../components/Editor";
 import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import moment from "moment";
+import Weather from "../components/Weather";
 
 
 const Cars = () => {
@@ -42,29 +43,32 @@ const Cars = () => {
   const paginate = pageNumber => setCurrentPage(pageNumber);
   
   return (
-    <div class="mx-auto w-screen rounded-lg shadow mt-20 justify-center flex flex-wrap bg-white">
-  {currentPosts.map((cat) => (
-  <div class="lg:w-80 sm:w-1/2 px-2 mt-6">
-    <img
-      src={`../upload/${cat?.img}`}
-      class="aspect-video w-full object-cover"
-      alt="" />
-    <div class="p-4">
-      <p class="mb-1 text-sm text-primary-500">{cat.username}<time>{moment(cat.date).format().slice(0,10)}</time></p>
-      <h3 class="text-xl font-medium text-gray-900">{cat.title.slice(0, 20)}...</h3>
-      <p class="mt-1 text-gray-500">{getText(cat.desc.slice(0, 200))}...</p>
-      <div class="mt-10 flex gap-2">
-        <Link to={`/post/${cat.id}`}
-          class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600  hover:bg-blue-400 hover:text-white"
-        >
-          Read more
-        </Link>
-        
-      </div>
+    <><div className="w-screen mt-20">
+      <Weather />
     </div>
-  </div>
-  ))}
-</div>
+    <div class="mx-auto w-screen rounded-lg shadow mt-20 justify-center flex flex-wrap bg-white">
+        {currentPosts.map((cat) => (
+          <div class="lg:w-80 sm:w-1/2 px-2 mt-6">
+            <img
+              src={`../upload/${cat?.img}`}
+              class="aspect-video w-full object-cover"
+              alt="" />
+            <div class="p-4">
+              <p class="mb-1 text-sm text-primary-500">{cat.username}<time>{moment(cat.date).format().slice(0, 10)}</time></p>
+              <h3 class="text-xl font-medium text-gray-900">{cat.title.slice(0, 20)}...</h3>
+              <p class="mt-1 text-gray-500">{getText(cat.desc.slice(0, 200))}...</p>
+              <div class="mt-10 flex gap-2">
+                <Link to={`/post/${cat.id}`}
+                  class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600  hover:bg-blue-400 hover:text-white"
+                >
+                  Read more
+                </Link>
+
+              </div>
+            </div>
+          </div>
+        ))}
+      </div></>
 
     // <>
     // <div className="flex bg-gray-200 p-20 w-screen">

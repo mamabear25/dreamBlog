@@ -9,13 +9,12 @@ import Featured from "../components/Featured"
 export default function Home () {
 
 return (
-  <div className="w-screen">
+  <div className="w-screen mt-20">
       <Weather />
           <div className="">
-            {/* <Featured /> */}
             <BlogList />
           </div>
-          <Weather />
+          <Featured />
       <Worldnews />
   </div>
 

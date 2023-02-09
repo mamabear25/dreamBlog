@@ -55,9 +55,9 @@ const PopularPage = () => {
   }
 
   return (
-    <div className="single p-40 bg-gray-200 py-8 w-screen gap-20 flex mt-10">
+    <div className="single p-40 bg-gray-200 py-8 w-screen gap-20 flex mt-20">
       <div className="content">
-        <img className="w-full object-cover rounded-lg" src={`../upload/${post?.img}`} alt="" />
+        <img className="w-full h-80 object-cover rounded-lg" src={`../upload/${post?.img}`} alt="" />
         <div className="user flex items-center my-4">
           <Link to={"/profile"}>
             {post.userImg && 

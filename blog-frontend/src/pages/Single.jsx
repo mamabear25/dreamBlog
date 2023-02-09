@@ -45,6 +45,7 @@ const Single = () => {
     try{
       const res = await axios.put(`/posts/${postId}`);
       setPost(res.data);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -56,15 +57,13 @@ const Single = () => {
   }
 
   return (
-    <div className="single p-40 bg-gray-200 py-8 w-screen gap-20 flex mt-10">
+    <div className="single p-40 bg-gray-200 py-8 w-screen gap-20 flex mt-20">
       <div className="content">
-        <img className="w-full object-cover rounded-lg" src={`../upload/${post?.img}`} alt="" />
+        <img className="w-screen lg:h-80 object-cover rounded-lg" src={`../upload/${post?.img}`} alt="" />
         <div className="user flex items-center my-4">
-          <Link to={"/profile"}>
             {post.userImg && 
               <img className="w-16 h-16 rounded-full mr-4 object-cover" src={post.userImg} alt="" />
             }
-          </Link>
           <div className="text-gray-700">
             <span className="font-medium">{post.username}</span>
             <p className="text-sm">Posted {moment(post.date).fromNow()}</p>
@@ -72,7 +71,7 @@ const Single = () => {
           {currentUser.username === post.username && (
           <div className="edit flex">
             <Link  to={`/write?edit=1`} state={post}>
-              <img className="w-12 h-12" src={Edit} alt=""/>
+              <img className="w-12 h-12" onClick={handleEdit} src={Edit} alt=""/>
             </Link>
             <img className="w-12 h-12"  onClick={handleDelete} src={Delete} alt="" />
           </div>

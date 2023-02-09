@@ -3,15 +3,28 @@ import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
     const [userPosts, setUserPosts] = useState([]);
+    const [postCount, setPostCount] = useState(0);
+    // const [editing, setEditing] = useState(false);
+    // const [formData, setFormData] = useState({
+    //     firstName: "",
+    //     lastName: "",
+    //     username: "",
+    //     email: "",
+    //     img: ""
+    // });
+    // const [success, setSuccess] = useState(false);
+
 
   useEffect(() => {
     const fetchData = async () => {
       try{
         const res = await axios.get(`/userposts`);
         setUserPosts(res.data);
+        setPostCount(res.data.length);
       } catch (err) {
         console.log(err)
       }
@@ -20,6 +33,7 @@ const Profile = () => {
   },[]);
 
     const { currentUser } = useContext(AuthContext);
+
     return (
         <main class="profile-page w-screen">
             <section class="relative block h-500-px">
@@ -56,13 +70,13 @@ const Profile = () => {
                                 <div class="w-full lg:w-4/12 px-4 lg:order-1">
                                     <div class="flex justify-center py-4 lg:pt-4 pt-8">
                                         <div class="mr-4 p-3 text-center">
-                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">22</span><span class="text-sm text-blueGray-400">Friends</span>
+                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">{postCount}</span><span class="text-sm text-blueGray-400">Posts</span>
                                         </div>
                                         <div class="mr-4 p-3 text-center">
-                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">10</span><span class="text-sm text-blueGray-400">Photos</span>
+                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">0</span><span class="text-sm text-blueGray-400">Friends</span>
                                         </div>
                                         <div class="lg:mr-4 p-3 text-center">
-                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">89</span><span class="text-sm text-blueGray-400">Comments</span>
+                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">0</span><span class="text-sm text-blueGray-400">Comments</span>
                                         </div>
                                     </div>
                                 </div>
@@ -73,21 +87,21 @@ const Profile = () => {
                                 </h3>
                                 <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-                                Los Angeles, California
+                                Nigeria
                                 </div>
                                 <div class="mb-2 text-blueGray-600 mt-10">
-                                <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Solution Manager - Creative Tim Officer
+                                <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Software Developer - Senior dev. Microsoft
                                 </div>
                                 <div class="mb-2 text-blueGray-600">
-                                <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>University of Computer Science
+                                <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>University of Lagos, Lagos, Nigeria
                                 </div>
                             </div>
                             <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
                                 <div class="flex flex-wrap justify-center">
                                     <div class="w-full lg:w-9/12 px-4">
                                         <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                                        An artist of considerable range, Jenna the name taken by
-                                        Melbourne-raised, Brooklyn-based Nick Murphy writes,
+                                        An artist of considerable range, {currentUser?.firstName} the name taken by
+                                        Melbourne-raised, Nigerian-based Nick Murphy writes,
                                         performs and records all of his own music, giving it a
                                         warm, intimate feel with a solid groove structure. An
                                         artist of considerable range.
@@ -100,19 +114,18 @@ const Profile = () => {
                 </div>
                 
             </section>
-            <h3 className="text-2xl font-medium text-center">Recent Posts</h3>
-                <div className="w-screen  mb-4 flex flex-col lg:flex-row text-center">
+            <h3 className="text-2xl font-medium text-center py-10">Recent Posts</h3>
+                <div className="w-screen justify-center mb-4 flex flex-col lg:flex-row text-center">
                     <div className="bg-white rounded-lg overflow-hidden shadow-lg w-full lg:w-auto">
                         <div className="p-8 flex flex-col justify-center items-center lg:flex-row lg:justify-start lg:flex-wrap">
                         {userPosts.map((userPost) => (
-                            <div className="mb-4 w-1/3 lg:w-auto" key={"/post/id"}>
-                            <img src={`../upload/${userPost?.img}`} className="w-full h-32 rounded-lg" alt="recent post"/>
-                            <div className="text-xs font-medium text-gray-800">{userPost.title.slice(0, 13)}..</div>
+                            <div className="mb-4 w-1/3 lg:w-auto mr-10" key={`/post/id`}>
+                                <img src={`../upload/${userPost?.img}`} className="w-full h-32 rounded-lg" alt="recent post"/>
+                                <div className="text-xs font-medium text-gray-800">{userPost.title.slice(0, 13)}..</div>
                             </div>
                         ))}
                         </div>
-                        <a href="#pablo" class="font-normal text-pink-500">Show more</a>
-
+                        {/* <Link to={""} className="font-normal text-pink-500">Show more</Link> */}
                     </div>
                 </div>
         </main>

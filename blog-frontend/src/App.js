@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PopularPage from "./pages/PopularPage";
 import FeaturePage from "./pages/FeaturePage";
+import NewsPage from "./pages/NewsPage";
 
 const Layout = () => {
   return (
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/feature/:id",
         element: <FeaturePage />
+      },
+      {
+        path: "/newspage",
+        element: <NewsPage />
       }
     ]
   },

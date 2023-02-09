@@ -63,7 +63,6 @@ const Featured = () => {
               </div>
             </div>
           </div>
-
           <div class="flex-shrink max-w-full w-full lg:w-1/2">
             <div class="box-one flex flex-row flex-wrap">
               <article class="flex-shrink max-w-full w-full sm:w-1/2">

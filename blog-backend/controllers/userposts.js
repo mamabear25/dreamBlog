@@ -7,9 +7,9 @@ export const getPostsByUser = (req, res) => {
     if(!token) return res.status(401).json("Unauthorized!")
 
     jwt.verify(token, "jwtkey", (err, user) => {
-        if(err) return res.status(403),json("Token is not valid!");
+        if(err) return res.status(403).json("Token is not valid!");
 
-        db.query("SELECT * FROM posts WHERE `uid` = ?", [user.id], (err, data) => {
+        db.query("SELECT *, (SELECT COUNT(*) FROM posts WHERE `uid` = ?) as post_count FROM posts WHERE `uid` = ?", [user.id, user.id], (err, data) => {
             if(err) return res.status(500).json(err)
 
             return res.status(200).json(data)

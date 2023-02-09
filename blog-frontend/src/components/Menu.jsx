@@ -26,7 +26,7 @@ const Menu = ({ cat }) => {
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
 
   return (
-      <div className="menu">
+      <div className="menu w-1/2">
           <h1 className="text-lg font-medium">Recommended posts</h1>
           {currentPosts.map((post) => (
               <div className="my-4" key={post.id}>

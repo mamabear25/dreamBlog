@@ -6,9 +6,10 @@ const Weather = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    const apiKey = process.env.API_KEY;
       const options = {
           method: 'GET',
-          url: 'https://newsapi.org/v2/top-headlines?country=us&apiKey=7bb9cf1ad9f34a1cbf21c73912b80e7c',
+          url: `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`,
       };
 
       axios.request(options)

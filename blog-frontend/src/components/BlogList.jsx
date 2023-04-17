@@ -1,8 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import Pagination from "./Pagination";
 import axios from "axios";
 import Editor from "./Editor";
 import Feat from "./Feat";

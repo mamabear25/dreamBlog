@@ -8,7 +8,7 @@ const Worldnews = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        const apiKey = 'BdQ6UoCeueMo6AocgE4wB0tfIOf3qKvI';
+        const apiKey = process.env.Apikey;
         const url = `https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${apiKey}`;
 
         axios.get(url)

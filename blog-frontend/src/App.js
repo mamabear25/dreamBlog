@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import PopularPage from "./pages/PopularPage";
 import FeaturePage from "./pages/FeaturePage";
 import NewsPage from "./pages/NewsPage";
+import { Component } from "react";
 
 const Layout = () => {
   return (
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
         element: <FeaturePage />
       },
       {
-        path: "/newspage",
+        path: "/newspage/:id",
         element: <NewsPage />
       }
     ]

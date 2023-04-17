@@ -61,7 +61,7 @@ const Register = () => {
               <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
           </div>
           <div class="w-full py-6 z-20">
-              <h1 class="my-6 text-5xl text-gray-200">Dreamers Blog</h1>
+              <h1 class="my-6 text-5xl text-gray-200">a/A Todo App</h1>
               {/* <div class="py-6 space-x-2">
                   <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">f</span>
                   <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">G+</span>

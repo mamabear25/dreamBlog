@@ -30,7 +30,6 @@ const upload = multer ({ storage: storage })
 app.post("/api/upload", upload.single("file"), function (req, res) {
     const file = req.file
     res.status(200).json(file.filename)
-
 })
 
 app.use("/api/auth", authRoutes)
@@ -41,7 +40,9 @@ app.use("/api/popular", popRoute)
 app.use("/api/feature", specialFeature)
 app.use("/api/slides", slideRoute)
 
-
+app.get("/", (req, res)=> {
+    res.send("Hello there")
+})
 // enabling CORS for all requests
 // app.use(cors());
 
@@ -65,6 +66,6 @@ app.use((err, req, res, next) => {
     next()
 })
 
-app.listen(8800, () => {
+app.listen(4000, () => {
     console.log("connected")
 })

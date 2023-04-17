@@ -114,20 +114,30 @@ const Profile = () => {
                 </div>
                 
             </section>
-            <h3 className="text-2xl font-medium text-center py-10">Recent Posts</h3>
-                <div className="w-screen justify-center mb-4 flex flex-col lg:flex-row text-center">
-                    <div className="bg-white rounded-lg overflow-hidden shadow-lg w-full lg:w-auto">
-                        <div className="p-8 flex flex-col justify-center items-center lg:flex-row lg:justify-start lg:flex-wrap">
+            {postCount <= 0 ? (
+            <div className="bg-white rounded-lg overflow-hidden shadow-lg w-full lg:w-auto">
+                <div className='text-center py-6'>
+                    <p>Hey {currentUser?.username}, You haven't published any article yet!</p>
+                </div>
+            </div>
+            ) : (
+            <>
+            <h3 className="text-2xl font-medium text-center py-10">Recent Post(s)</h3>
+            <div className="w-screen justify-center mb-4 flex flex-col lg:flex-row text-center">
+                <div className="bg-white rounded-lg overflow-hidden shadow-lg w-full lg:w-auto">
+                    <div className="p-8 flex flex-col justify-center items-center lg:flex-row lg:justify-start lg:flex-wrap">
                         {userPosts.map((userPost) => (
                             <div className="mb-4 w-1/3 lg:w-auto mr-10" key={`/post/id`}>
-                                <img src={`../upload/${userPost?.img}`} className="w-full h-32 rounded-lg" alt="recent post"/>
+                                <img src={`../upload/${userPost?.img}`} className="w-full h-32 rounded-lg" alt="recent post" />
                                 <div className="text-xs font-medium text-gray-800">{userPost.title.slice(0, 13)}..</div>
                             </div>
                         ))}
-                        </div>
-                        {/* <Link to={""} className="font-normal text-pink-500">Show more</Link> */}
                     </div>
+                    {/* <Link to={""} className="font-normal text-pink-500">Show more</Link> */}
                 </div>
+            </div>
+            </>
+            )}
         </main>
     );
 }

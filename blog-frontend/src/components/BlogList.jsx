@@ -46,7 +46,7 @@ const Home = () => {
           <div class="flex-shrink max-w-full w-full lg:w-2/3 overflow-hidden">
             <div class="w-full py-3">
               <h2 class="text-gray-800 text-2xl font-bold">
-                <span class="inline-block h-5 border-l-3 border-red-600 mr-2"></span>Latest Posts
+                <span class="inline-block h-5 border-l-3 border-pink-700 mr-2"></span>Latest Posts
               </h2>
             </div>
             <div class="flex flex-row flex-wrap -mx-3">
@@ -68,7 +68,7 @@ const Home = () => {
                       {post.title}
                     </h3>
                     <p class="hidden md:block text-gray-600 leading-tight mb-1">{getText(post.desc.slice(0,60))}</p>
-                    <p class="text-gray-500"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>{post.cat}</p>
+                    <p class="text-gray-500"><span class="inline-block h-3 border-l-2 border-pink-700 mr-2"></span>{post.cat}</p>
                   </div>
                 </div>
               </Link>

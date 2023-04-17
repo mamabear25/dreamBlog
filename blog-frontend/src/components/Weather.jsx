@@ -26,9 +26,9 @@ const Weather = () => {
     <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
       <div className="flex flex-row flex-wrap">
         <div className="flex-shrink max-w-full w-full py-12 overflow-hidden">
-          <div className="w-full py-3">
+          <div className="w-full ">
             <h2 className="text-white text-2xl font-bold text-shadow-black">
-              <span className="inline-block h-5 border-l-3 border-red-600 mr-2"></span>BREAKING
+              <span className="inline-block h-5 border-l-3 border-pink-800 mr-2"></span>BREAKING
             </h2>
           </div>
           <div id="post-carousel" className="flex overflow-x-scroll">
@@ -36,7 +36,7 @@ const Weather = () => {
             <div className="w-1/3 px-2" key={index}>
                 <img src={post.urlToImage} alt="news-image" style={{height:"250px"}}/>
                 <p className="text-white font-bold text-shadow-black">
-              <span className="inline-block h-2 border-l-3 border-red-600 mr-2"></span>{post.title}
+              <span className="inline-block h-2 border-l-3 border-pink-800 mr-2"></span>{post.title}
             </p>
             </div>
             ))}
